@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     // The URL for the related origins request. 
     // See https://github.com/deephand/netlify-related-origin for the configuration.
-    const RELATED_ORIGIN = 'deephand-related-origin.netlify.app';
+    const RELATED_ORIGIN = 'michaelnien.github.io';
 
     // --- DOM Elements ---
     const statusContainer = document.getElementById('status-checks');
