@@ -40,5 +40,15 @@
     "sha256_cert_fingerprints": [
       "DD:DA:39:0B:E3:59:AA:FE:09:74:D7:15:82:7B:21:EB:E3:CD:4B:B6:1E:87:C0:91:CE:12:C6:7B:BC:38:9E:28"]
   }
+},
+{
+  "relation" : [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+  ],
+  "target": {
+    "namespace": "web",
+    "site": "michaelnien.github.io"
+  }
 }
 ]
