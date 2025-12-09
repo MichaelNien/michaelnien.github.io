@@ -51,6 +51,10 @@ async function doRegister() {
   const response = publicKeyCredential.response;
   console.log("publicKeyCredential.response.attestationObj : ", response.attestationObj);
   console.log("publicKeyCredential.response.clientDataJSON : ", response.clientDataJSON);
+  console.log("publicKeyCredential.response.getAuthenticatorData : ", response.getAuthenticatorData);
+  console.log("publicKeyCredential.response.getPublicKey : ", response.getPublicKey);
+  console.log("publicKeyCredential.response.getPublicKeyAlgorithm : ", response.getPublicKeyAlgorithm);
+  console.log("publicKeyCredential.response.getTransports : ", response.getTransports);
 }
 
 // 當使用者點下註冊按鈕時，執行 doRegister 函式
