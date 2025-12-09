@@ -47,6 +47,7 @@ async function doRegister() {
     }
   });
   console.log("透過CTAP取得簽署後的assertion資料為: ", publicKeyCredential);
+  console.log("publicKeyCredential.response: ", publicKeyCredential.response);
 }
 
 // 當使用者點下註冊按鈕時，執行 doRegister 函式
