@@ -49,7 +49,6 @@ async function doRegister() {
   console.log("透過CTAP取得簽署後的assertion資料為: ", publicKeyCredential);
   
   const response = publicKeyCredential.response;
-  console.log("publicKeyCredential.response: ", response);
   console.log("publicKeyCredential.response.attestationObj : ", response.attestationObj);
 }
 
