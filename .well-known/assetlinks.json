@@ -36,7 +36,7 @@
   ],
   "target": {
     "namespace": "android_app",
-    "package_name": "tw.com.michael.nien.poc.fido",
+    "package_name": "tw.com.michael.nien.poc.fido222",
     "sha256_cert_fingerprints": [
       "DD:DA:39:0B:E3:59:AA:FE:09:74:D7:15:82:7B:21:EB:E3:CD:4B:B6:1E:87:C0:91:CE:12:C6:7B:BC:38:9E:28"]
   }
