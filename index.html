@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset=utf-8>
+</head>
+<body>
+<script>
+
+function stringToUint8Array(str) {
+    return new TextEncoder().encode(str);
+}
+
+async function doRegister() {
+  const publicKeyCredential = await navigator.credentials.create({
+    publicKey: {
+      rp: {
+          name: "test",    //網域名稱
+          id: "michaelnien.github.io", //網域網址(API會比對是否相同網域才會觸發)
+      },
+      user: {
+        // 這邊放使用者相關的資料 (後續會註冊在 authenticator 中，關聯到對應的一組 credential)
+        id: stringToUint8Array("edd1f115-6198-11ed-a902-0242ac1d0103"),
+        name: "bob@example.org",
+        displayName: "Bob"
+      },
+      pubKeyCredParams: [
+        {
+          type: "public-key",
+          alg: -7
+        }
+      ],
+      authenticatorSelection: {
+        authenticatorAttachment: "platform"
+      },
+      attestation: "direct",
+      timeout: 60000,
+      challenge: new Uint8Array([
+        // 註: 這邊需要從後端伺服器產生一組本次登入使用的一次性 challenge bytes
+        //     以防止釣魚攻擊，不可以寫死
+        0xDC, 0x69, 0xDD, 0xBA, 0xB0, 0xBF, 0x3A, 0x9B, 0xDB, 0x89, 0x9F, 0x58, 0x84, 0x2D, 0x6F, 0x29,
+        0xE1, 0x20, 0x30, 0x20, 0xB6, 0x4E, 0xFF, 0x14, 0x74, 0x95, 0x4B, 0x56, 0x28, 0xEB, 0x2F, 0xFD
+      ]).buffer
+    }
+  });
+  console.log("透過CTAP取得簽署後的assertion資料為: ", publicKeyCredential);
+}
+
+// 當使用者點下註冊按鈕時，執行 doRegister 函式
+window.onload = function() {
+  const button = document.getElementById('register-btn');
+  button.addEventListener('click', doRegister);
+}
+</script>
+
+<button id="register-btn" type="button">doRegister</button>
+<br/>
+<br/>
+<br/>
 <a href="https://michaelnien.github.io/">立即打開（直接打開）&gt;&gt;</a>
+
+</body>
+</html>
