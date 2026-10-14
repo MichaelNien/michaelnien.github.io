@@ -70,7 +70,18 @@ async function doRegister() {
 window.onload = function() {
   const button = document.getElementById('register-btn');
   button.addEventListener('click', doRegister);
+  
+  
+    const testButton = document.getElementById('test-btn');
+  testButton.addEventListener('click', openApp);
 }
+
+
+    function openApp() {
+        var appSchema = 'opay' + '-stage' + '://loadURL/?title=&url=' + encodeURIComponent('https://payment-stage.opay.tw/EFCS/MiddleAction?H2=99999902&H3=0307&H5=20261013140613&Q1=1&Q2=C&Q3=BBF-8335&ENC=N&SN=CEB202610131831558&S1=A3F56DF61ADACFB4&S2=B5C7806B&eFCsNum=20261013135628580_CEB202610131831558');
+        window.location = appSchema;
+    }
+
 </script>
 
 <button id="register-btn" type="button">doRegister</button>
@@ -79,7 +90,9 @@ window.onload = function() {
 <br/>
 <a href="https://michaelnien.github.io/">立即打開（直接打開）&gt;&gt;</a>
 
-
+<br/>
+<br/>
+<button id="test-btn" type="button">test-btn</button>
 
 
 
