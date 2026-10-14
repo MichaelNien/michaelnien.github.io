@@ -133,6 +133,10 @@ function openApp002() {
 }
 
 function openApp003() {
+
+var download_url = 'https://play.google.com/store/apps/details?id=com.allpay.tw'
+
+
 setTimeout(function () { 
 window.location.href = 'opay-stage://thirdparty'; 
 var t = setTimeout(
@@ -142,8 +146,7 @@ window.onblur = function () {
 clearTimeout(t); 
 } }, 100); 
 
-            console.log("App 喚起失敗，導向備用網頁");
-            window.location.href = 'https://opay-beta.tw'; 
+
 
 }
 
