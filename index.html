@@ -77,12 +77,30 @@ window.onload = function() {
 }
 
 
-    function openApp() {
-		alert("test")
-		
-		var appSchema = 'opay' + '-stage' + '://loadURL/?title=&url=' + 'https%3A%2F%2Fwww.opay-beta.tw%2F';
-        window.location = appSchema;
-    }
+function openApp() {
+    // 1. 移除會阻斷執行的 alert，改用 console.log
+    console.log("Attempting to open App..."); 
+    
+    var appSchema = 'opay-stage://loadURL/?title=&url=' + encodeURIComponent('https://opay-beta.tw');
+    
+    // 2. 使用建立 <a> 標籤的方式動態觸發，相容性較高
+    var downloadLink = document.createElement('a');
+    downloadLink.href = appSchema;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+    // 3. 【選填備用方案】若 3 秒內沒成功喚起 App，導向網頁版或下載頁
+    var startTime = Date.now();
+    setTimeout(function() {
+        // 如果使用者成功跳轉到 App，通常瀏覽器會被切換到背景，Date.now() - startTime 會變很大
+        // 如果還留在網頁上（時間差很小），代表喚起失敗
+        if (Date.now() - startTime < 3500) {
+            console.log("App 喚起失敗，導向備用網頁");
+            window.location.href = 'https://opay-beta.tw'; 
+        }
+    }, 3000);
+}
 
 </script>
 
