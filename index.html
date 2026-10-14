@@ -76,6 +76,9 @@ window.onload = function() {
   
   const testButton002 = document.getElementById('test-btn-002');
   testButton002.addEventListener('click', openApp002);
+  
+  const testButton003 = document.getElementById('test-btn-003');
+  testButton003.addEventListener('click', openApp003);
 }
 
 
@@ -129,6 +132,21 @@ function openApp002() {
     }, 3000);
 }
 
+function openApp003() {
+setTimeout(function () { 
+window.location.href = 'opay-stage://thirdparty'; 
+var t = setTimeout(
+function () { 
+window.open(download_url); }, 1000); 
+window.onblur = function () { 
+clearTimeout(t); 
+} }, 100); 
+
+            console.log("App 喚起失敗，導向備用網頁");
+            window.location.href = 'https://opay-beta.tw'; 
+
+}
+
 </script>
 
 <button id="register-btn" type="button">doRegister</button>
@@ -144,6 +162,10 @@ function openApp002() {
 <br/>
 <br/>
 <button id="test-btn-002" type="button">test-btn-002</button>
+
+<br/>
+<br/>
+<button id="test-btn-003" type="button">test-btn-003</button>
 
 
 
